@@ -1,0 +1,1172 @@
+<title>Gonnis Umzüge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700;800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+  /* ============ TOKENS ============ */
+  :root{
+    --ink:#161d2e;
+    --ink-soft:#4a5164;
+    --ink-faint:#7a8094;
+    --paper:#efeee7;
+    --surface:#ffffff;
+    --surface-2:#e8e6dc;
+    --line:#d9d6c9;
+    --amber:#d97819;
+    --amber-deep:#a85a16;
+    --amber-tint:#faead4;
+    --amber-tint-line:#eeddb8;
+    --green:#3f7a54;
+    --shadow: 0 1px 2px rgba(22,29,46,.04), 0 8px 24px -12px rgba(22,29,46,.18);
+    --radius-s: 3px;
+    --radius-m: 6px;
+    --font-display:'Big Shoulders Display', 'Arial Narrow', sans-serif;
+    --font-body:'Work Sans', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono:'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+    --bar-bg:#0f1424;
+    --bar-text:#efeee7;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#edeadf;
+      --ink-soft:#b1aebc;
+      --ink-faint:#7f7f92;
+      --paper:#12141e;
+      --surface:#181b28;
+      --surface-2:#1f2233;
+      --line:#2c3044;
+      --amber:#f0a63f;
+      --amber-deep:#f6c374;
+      --amber-tint:#2a2314;
+      --amber-tint-line:#3c331d;
+      --green:#6fb98a;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 28px -14px rgba(0,0,0,.6);
+      --bar-bg:#050710;
+      --bar-text:#edeadf;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#edeadf;
+    --ink-soft:#b1aebc;
+    --ink-faint:#7f7f92;
+    --paper:#12141e;
+    --surface:#181b28;
+    --surface-2:#1f2233;
+    --line:#2c3044;
+    --amber:#f0a63f;
+    --amber-deep:#f6c374;
+    --amber-tint:#2a2314;
+    --amber-tint-line:#3c331d;
+    --green:#6fb98a;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 28px -14px rgba(0,0,0,.6);
+    --bar-bg:#050710;
+    --bar-text:#edeadf;
+    color-scheme: dark;
+  }
+
+  /* ============ RESET ============ */
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0}
+  img,svg{display:block;max-width:100%}
+  a{color:inherit}
+  button{font:inherit;color:inherit}
+  ul{margin:0;padding:0;list-style:none}
+  h1,h2,h3,h4,p{margin:0}
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:var(--font-display);
+    font-weight:700;
+    letter-spacing:.01em;
+    text-wrap:balance;
+    color:var(--ink);
+  }
+  .container{
+    width:100%;
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+    outline:2px solid var(--amber);
+    outline-offset:2px;
+  }
+  ::selection{ background:var(--amber-tint); color:var(--ink); }
+
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:.72rem;
+    font-weight:600;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--amber-deep);
+    display:inline-flex;
+    align-items:center;
+    gap:.55em;
+  }
+  .eyebrow::before{
+    content:"";
+    width:18px;height:1px;
+    background:var(--amber-deep);
+    display:inline-block;
+  }
+  .section-head{
+    max-width:680px;
+    margin-bottom:44px;
+  }
+  .section-head h2{
+    font-size:clamp(1.9rem,3.2vw,2.5rem);
+    line-height:1.08;
+    margin-top:.5em;
+  }
+  .section-head p{
+    margin-top:14px;
+    color:var(--ink-soft);
+    font-size:1.03rem;
+    max-width:56ch;
+  }
+  section{ padding:88px 0; }
+  @media (max-width:720px){ section{ padding:60px 0; } }
+
+  /* ============ BUTTONS ============ */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:13px 22px;
+    font-family:var(--font-mono);
+    font-size:.78rem;
+    font-weight:600;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    border-radius:var(--radius-s);
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform .15s ease, background .15s ease, border-color .15s ease, color .15s ease;
+    white-space:nowrap;
+  }
+  .btn:active{ transform:translateY(1px); }
+  .btn-primary{
+    background:var(--amber);
+    color:#181305;
+    border-color:var(--amber);
+  }
+  .btn-primary:hover{ background:var(--amber-deep); border-color:var(--amber-deep); }
+  .btn-ghost{
+    background:transparent;
+    color:var(--ink);
+    border-color:var(--line);
+  }
+  .btn-ghost:hover{ border-color:var(--ink); }
+  .btn-ghost-invert{
+    background:transparent;
+    color:var(--bar-text);
+    border-color:rgba(239,238,231,.35);
+  }
+  .btn-ghost-invert:hover{ border-color:var(--bar-text); }
+  .btn svg{ width:15px;height:15px; }
+
+  /* ============ HEADER ============ */
+  .topstack{ position:sticky; top:0; z-index:100; }
+
+  header.site{
+    background:color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  header.site .container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:76px;
+    gap:24px;
+  }
+  .logo{
+    display:flex;
+    flex-direction:column;
+    line-height:1;
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .logo .l1{ font-family:var(--font-display); font-weight:800; font-size:1.5rem; letter-spacing:.01em; }
+  .logo .l2{ font-family:var(--font-mono); font-size:.6rem; letter-spacing:.28em; color:var(--amber-deep); margin-top:3px; }
+
+  nav.primary{ display:flex; gap:30px; }
+  nav.primary a{
+    text-decoration:none;
+    font-size:.92rem;
+    color:var(--ink-soft);
+    position:relative;
+    padding:4px 0;
+  }
+  nav.primary a:hover{ color:var(--ink); }
+
+  .header-actions{ display:flex; align-items:center; gap:16px; }
+  .phone-link{
+    display:flex; flex-direction:column; text-decoration:none; color:var(--ink); text-align:right;
+  }
+  .phone-link .lbl{ font-family:var(--font-mono); font-size:.62rem; letter-spacing:.14em; color:var(--ink-faint); text-transform:uppercase; }
+  .phone-link .num{ font-weight:600; font-size:.95rem; }
+
+  .burger{
+    display:none;
+    background:none;border:1px solid var(--line);border-radius:var(--radius-s);
+    width:42px;height:42px;align-items:center;justify-content:center;cursor:pointer;
+  }
+  .burger svg{ width:18px;height:18px; }
+
+  .mobile-nav{
+    display:none;
+    flex-direction:column;
+    gap:2px;
+    background:var(--surface);
+    border-bottom:1px solid var(--line);
+    padding:8px 24px 20px;
+  }
+  .mobile-nav a{
+    text-decoration:none;color:var(--ink);
+    padding:12px 0;
+    border-bottom:1px solid var(--line);
+    font-size:1rem;
+  }
+  .mobile-nav .mobile-cta{ margin-top:14px; }
+
+  @media (max-width:920px){
+    nav.primary, .header-actions .phone-link{ display:none; }
+    .burger{ display:flex; }
+    .mobile-nav.open{ display:flex; }
+  }
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    padding:76px 0 60px;
+  }
+  .hero .container{
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    gap:48px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(2.7rem,5.4vw,4.4rem);
+    line-height:.98;
+    margin-top:16px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--amber);
+  }
+  .hero .lead{
+    margin-top:22px;
+    font-size:1.13rem;
+    color:var(--ink-soft);
+    max-width:50ch;
+  }
+  .hero .cta-row{
+    display:flex;
+    gap:14px;
+    margin-top:34px;
+    flex-wrap:wrap;
+  }
+  .trust-strip{
+    display:flex;
+    flex-wrap:wrap;
+    gap:28px;
+    margin-top:52px;
+    padding-top:28px;
+    border-top:1px solid var(--line);
+  }
+  .trust-item{ display:flex; align-items:center; gap:10px; }
+  .trust-item svg{ width:20px;height:20px;color:var(--amber-deep); flex-shrink:0; }
+  .trust-item .t-main{ font-weight:600; font-size:.95rem; }
+  .trust-item .t-sub{ font-size:.78rem; color:var(--ink-faint); }
+
+  .hero-art{ position:relative; height:420px; }
+  .hero-art svg{ width:100%; height:100%; }
+  .route-dot{
+    offset-path:path("M40,340 C120,300 140,180 230,150 S 380,90 430,60");
+    animation: travel 9s linear infinite;
+  }
+  @keyframes travel{ from{ offset-distance:0%; } to{ offset-distance:100%; } }
+  .route-path{
+    stroke-dasharray:8 10;
+    animation: dash 40s linear infinite;
+  }
+  @keyframes dash{ to{ stroke-dashoffset:-1000; } }
+  @media (prefers-reduced-motion: reduce){
+    .route-dot, .route-path{ animation:none; }
+  }
+  @media (max-width:920px){
+    .hero .container{ grid-template-columns:1fr; }
+    .hero-art{ height:260px; order:-1; }
+  }
+
+  /* ============ STATS BAND ============ */
+  .stats-band{
+    padding:40px 0;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    background:var(--surface);
+  }
+  .stats-band .container{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:32px;
+  }
+  .stat{ display:flex; flex-direction:column; gap:6px; }
+  .stat .n{ font-family:var(--font-display); font-size:2.1rem; font-weight:700; display:flex; align-items:baseline; gap:8px; }
+  .stat .n small{ font-family:var(--font-mono); font-size:.8rem; color:var(--ink-faint); font-weight:500; }
+  .stat .lbl{ font-size:.85rem; color:var(--ink-soft); }
+  @media (max-width:820px){ .stats-band .container{ grid-template-columns:repeat(2,1fr); row-gap:28px; } }
+
+  /* ============ SERVICES ============ */
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .service-card{
+    background:var(--surface);
+    padding:32px 26px;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    transition:background .2s ease;
+  }
+  .service-card:hover{ background:var(--amber-tint); }
+  .service-card .icon-wrap{
+    width:44px;height:44px;
+    display:flex;align-items:center;justify-content:center;
+    border:1px solid var(--line);
+    border-radius:var(--radius-s);
+    color:var(--amber-deep);
+  }
+  .service-card .icon-wrap svg{ width:22px;height:22px; }
+  .service-card h3{ font-size:1.15rem; font-weight:600; font-family:var(--font-body); }
+  .service-card p{ font-size:.9rem; color:var(--ink-soft); }
+  @media (max-width:920px){ .services-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:560px){ .services-grid{ grid-template-columns:1fr; } }
+
+  /* ============ ABLAUF ============ */
+  .process{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:28px;
+  }
+  .process-step{ position:relative; padding-top:20px; }
+  .process-step .num{
+    font-family:var(--font-display);
+    font-size:2.6rem;
+    font-weight:700;
+    color:var(--surface-2);
+    -webkit-text-stroke:1.5px var(--line);
+    color:transparent;
+    line-height:1;
+  }
+  .process-step h3{ margin-top:10px; font-size:1.1rem; font-family:var(--font-body); font-weight:600; }
+  .process-step p{ margin-top:8px; font-size:.9rem; color:var(--ink-soft); }
+  .process-step::before{
+    content:"";
+    position:absolute; top:0; left:0;
+    width:32px; height:2px;
+    background:var(--amber);
+  }
+  @media (max-width:820px){ .process{ grid-template-columns:1fr 1fr; row-gap:36px; } }
+  @media (max-width:560px){ .process{ grid-template-columns:1fr; } }
+
+  /* ============ B2B BAND ============ */
+  .b2b{
+    background:var(--ink);
+    color:var(--bar-text);
+    position:relative;
+  }
+  :root[data-theme="dark"] .b2b, .b2b { }
+  .b2b .eyebrow{ color:var(--amber); }
+  .b2b .eyebrow::before{ background:var(--amber); }
+  .b2b .section-head h2{ color:var(--bar-text); }
+  .b2b .section-head p{ color:#c7c5d6; }
+  .b2b-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+    align-items:start;
+  }
+  .b2b-list{ display:flex; flex-direction:column; gap:0; }
+  .b2b-list li{
+    display:flex; gap:14px; align-items:flex-start;
+    padding:16px 0;
+    border-bottom:1px solid rgba(239,238,231,.14);
+    font-size:.95rem;
+  }
+  .b2b-list li:first-child{ border-top:1px solid rgba(239,238,231,.14); }
+  .b2b-list svg{ width:18px;height:18px; color:var(--amber); flex-shrink:0; margin-top:2px; }
+  .b2b-cta{ margin-top:30px; }
+  @media (max-width:820px){ .b2b-grid{ grid-template-columns:1fr; gap:32px; } }
+
+  /* ============ ÜBER UNS / TEAM ============ */
+  .about-grid{
+    display:grid;
+    grid-template-columns:.85fr 1.15fr;
+    gap:56px;
+    margin-bottom:56px;
+  }
+  .about-copy p{ color:var(--ink-soft); font-size:1.02rem; }
+  .about-copy p + p{ margin-top:16px; }
+  .about-fact-list{ display:flex; flex-direction:column; gap:14px; }
+  .about-fact{
+    display:flex; gap:14px; padding:16px; border:1px solid var(--line); border-radius:var(--radius-m); background:var(--surface);
+  }
+  .about-fact svg{ width:20px;height:20px;color:var(--amber-deep); flex-shrink:0; margin-top:2px; }
+  .about-fact .t{ font-weight:600; font-size:.92rem; }
+  .about-fact .s{ font-size:.82rem; color:var(--ink-faint); margin-top:2px; }
+
+  .team-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .team-card{
+    border:1px solid var(--line);
+    border-radius:var(--radius-m);
+    background:var(--surface);
+    overflow:hidden;
+    position:relative;
+  }
+  .team-avatar{
+    aspect-ratio:4/3.1;
+    background:
+      repeating-linear-gradient(135deg, transparent 0 18px, var(--amber-tint-line) 18px 19px),
+      var(--amber-tint);
+    display:flex;align-items:center;justify-content:center;
+    position:relative;
+  }
+  .team-avatar .mono{
+    font-family:var(--font-display);
+    font-size:3.2rem;
+    font-weight:700;
+    color:var(--amber-deep);
+    opacity:.85;
+  }
+  .team-body{ padding:18px 20px 22px; }
+  .team-body .name{ font-weight:600; font-size:1.02rem; }
+  .team-body .role{ font-family:var(--font-mono); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--amber-deep); margin-top:4px; }
+  .team-body .bio{ font-size:.87rem; color:var(--ink-soft); margin-top:10px; }
+  @media (max-width:920px){ .about-grid{ grid-template-columns:1fr; } }
+  @media (max-width:720px){ .team-grid{ grid-template-columns:1fr; } }
+
+  /* ============ BEWERTUNGEN ============ */
+  .reviews-top{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:32px;
+    flex-wrap:wrap;
+    margin-bottom:44px;
+  }
+  .rating-block{
+    display:flex; align-items:center; gap:20px;
+    padding:20px 26px;
+    border:1px solid var(--line);
+    border-radius:var(--radius-m);
+    background:var(--surface);
+  }
+  .rating-num{ font-family:var(--font-display); font-size:3rem; font-weight:700; }
+  .stars{ display:flex; gap:3px; margin-top:4px; }
+  .stars svg{ width:16px;height:16px; color:var(--amber); }
+  .rating-sub{ font-size:.82rem; color:var(--ink-faint); margin-top:4px; }
+
+  .review-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .review-card{
+    padding:26px;
+    border:1px solid var(--line);
+    border-radius:var(--radius-m);
+    background:var(--surface);
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+  .review-card .stars svg{ width:14px;height:14px; }
+  .review-card p{ font-size:.95rem; color:var(--ink); flex-grow:1; }
+  .review-card .who{ font-size:.8rem; color:var(--ink-faint); border-top:1px solid var(--line); padding-top:12px; }
+  @media (max-width:920px){ .review-grid{ grid-template-columns:1fr; } }
+
+  /* ============ EINZUGSGEBIET ============ */
+  .area-wrap{ display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
+  .chip-cloud{ display:flex; flex-wrap:wrap; gap:10px; }
+  .chip{
+    font-family:var(--font-mono);
+    font-size:.78rem;
+    letter-spacing:.03em;
+    padding:9px 14px;
+    border:1px solid var(--line);
+    border-radius:20px;
+    background:var(--surface);
+  }
+  .chip.hq{ background:var(--ink); color:var(--bar-text); border-color:var(--ink); }
+  @media (max-width:820px){ .area-wrap{ grid-template-columns:1fr; } }
+
+  /* ============ KONTAKT ============ */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:.85fr 1.15fr;
+    gap:48px;
+    align-items:start;
+  }
+  .contact-card{
+    background:var(--ink);
+    color:var(--bar-text);
+    border-radius:var(--radius-m);
+    padding:34px 30px;
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+  }
+  .contact-line{ display:flex; gap:14px; align-items:flex-start; }
+  .contact-line svg{ width:19px;height:19px; color:var(--amber); flex-shrink:0; margin-top:2px; }
+  .contact-line .l{ font-family:var(--font-mono); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:#a7a5b8; }
+  .contact-line .v{ font-size:.98rem; margin-top:2px; }
+  .contact-line .v a{ color:var(--bar-text); text-decoration:none; }
+  .contact-line .v a:hover{ color:var(--amber); }
+
+  form.inquiry{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius-m);
+    padding:34px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+  }
+  form.inquiry .full{ grid-column:1/-1; }
+  .field label{
+    display:block;
+    font-family:var(--font-mono);
+    font-size:.68rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    margin-bottom:8px;
+  }
+  .field input, .field textarea{
+    width:100%;
+    border:1px solid var(--line);
+    background:var(--paper);
+    color:var(--ink);
+    border-radius:var(--radius-s);
+    padding:11px 13px;
+    font-family:var(--font-body);
+    font-size:.95rem;
+  }
+  .field textarea{ resize:vertical; min-height:100px; }
+  form.inquiry .form-foot{
+    display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+  }
+  .form-note{ font-size:.78rem; color:var(--ink-faint); max-width:38ch; }
+  @media (max-width:920px){ .contact-grid{ grid-template-columns:1fr; } }
+  @media (max-width:600px){ form.inquiry{ grid-template-columns:1fr; padding:24px; } }
+
+  /* ============ FOOTER ============ */
+  footer{
+    background:var(--ink);
+    color:#c7c5d6;
+    padding:64px 0 0;
+  }
+  .footer-top{
+    display:grid;
+    grid-template-columns:1.3fr .8fr .8fr 1.1fr;
+    gap:40px;
+    padding-bottom:48px;
+    border-bottom:1px solid rgba(239,238,231,.14);
+  }
+  .footer-brand .l1{ font-family:var(--font-display); font-weight:800; font-size:1.6rem; color:var(--bar-text); }
+  .footer-brand .l2{ font-family:var(--font-mono); font-size:.6rem; letter-spacing:.28em; color:var(--amber); margin-top:4px; }
+  .footer-brand p{ margin-top:16px; font-size:.88rem; max-width:34ch; color:#a7a5b8; }
+  footer h4{
+    font-family:var(--font-mono); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase;
+    color:#a7a5b8; font-weight:600; margin-bottom:16px;
+  }
+  footer .flinks{ display:flex; flex-direction:column; gap:10px; }
+  footer .flinks a{ color:#e4e2ee; text-decoration:none; font-size:.9rem; }
+  footer .flinks a:hover{ color:var(--amber); }
+  footer .flinks .muted{ color:#7d7b8c; font-size:.85rem; }
+
+  .footer-bottom{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;
+    padding:22px 0; font-size:.78rem; color:#7d7b8c;
+  }
+  @media (max-width:820px){ .footer-top{ grid-template-columns:1fr 1fr; row-gap:32px; } }
+  @media (max-width:560px){ .footer-top{ grid-template-columns:1fr; } }
+
+  /* ============ MAKER BADGE ============ */
+  .maker-badge{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    z-index:200;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:9px 14px;
+    background:var(--ink);
+    color:var(--bar-text);
+    text-decoration:none;
+    border-radius:999px;
+    box-shadow:var(--shadow);
+    font-family:var(--font-mono);
+    font-size:.7rem;
+    letter-spacing:.05em;
+    border:1px solid rgba(239,238,231,.14);
+    transition:transform .15s ease, background .15s ease;
+  }
+  .maker-badge:hover{ background:#232a3f; transform:translateY(-1px); }
+  .maker-badge .dot{
+    width:6px;height:6px;border-radius:50%;
+    background:var(--amber);
+    flex-shrink:0;
+  }
+  .maker-badge b{ color:var(--bar-text); font-weight:600; }
+  @media (max-width:560px){
+    .maker-badge{ right:12px; bottom:12px; padding:8px 12px; font-size:.65rem; }
+  }
+
+  /* ============ REVEAL ============ */
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+  }
+</style>
+
+<!-- ============================================================ -->
+
+<div class="topstack">
+  <header class="site">
+    <div class="container">
+      <a href="#top" class="logo">
+        <span class="l1">GONNIS</span>
+        <span class="l2">UMZÜGE&nbsp;·&nbsp;MELLE</span>
+      </a>
+      <nav class="primary">
+        <a href="#leistungen">Leistungen</a>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#firmenkunden">Firmenkunden</a>
+        <a href="#team">Über uns</a>
+        <a href="#bewertungen">Bewertungen</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+      <div class="header-actions">
+        <a class="phone-link" href="tel:+4954229620660">
+          <span class="lbl">Anrufen</span>
+          <span class="num">05422 96 20 660</span>
+        </a>
+        <a class="btn btn-primary" href="#kontakt">Kostenlose Anfrage</a>
+        <button class="burger" id="burgerBtn" aria-label="Menü öffnen" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#firmenkunden">Firmenkunden</a>
+      <a href="#team">Über uns</a>
+      <a href="#bewertungen">Bewertungen</a>
+      <a href="#kontakt">Kontakt</a>
+      <a class="btn btn-primary mobile-cta" href="#kontakt">Kostenlose Anfrage</a>
+    </div>
+  </header>
+</div>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container">
+      <div>
+        <span class="eyebrow">Umzugsservice Melle &amp; Osnabrücker Land</span>
+        <h1>Ihr Umzug.<br><em>Unsere Route.</em></h1>
+        <p class="lead">Gonnis Umzüge plant und begleitet Privat- und Firmenumzüge rund um Melle-Vesterhausen — sorgfältig verpackt, pünktlich transportiert, ohne böse Überraschungen am Zielort.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#kontakt">
+            Kostenlose Anfrage stellen
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="tel:+4954229620660">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
+            05422 96 20 660
+          </a>
+        </div>
+
+        <div class="trust-strip">
+          <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.55L18 20.5 12 16.9 6 20.5l1.4-6.6L2.2 8.86l6.9-.6L12 2z"/></svg>
+            <div><div class="t-main">4,8 / 5 · 35 Bewertungen</div><div class="t-sub">Google &amp; weitere Portale</div></div>
+          </div>
+          <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-5.2-9.5-9.7A5.5 5.5 0 0 1 12 5.5a5.5 5.5 0 0 1 9.5 5.8C19 15.8 12 21 12 21z"/></svg>
+            <div><div class="t-main">Familienbetrieb</div><div class="t-sub">Zwei Gesellschafter, ein Team</div></div>
+          </div>
+          <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.4 8-8 10-4.6-2-8-5-8-10V6l8-4z"/></svg>
+            <div><div class="t-main">Festpreis-Garantie</div><div class="t-sub">Kein Stundenzähler-Risiko</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 460 400">
+          <path class="route-path" d="M40,340 C120,300 140,180 230,150 S 380,90 430,60" fill="none" stroke="var(--line)" stroke-width="2"/>
+          <circle cx="40" cy="340" r="6" fill="var(--ink-faint)"/>
+          <circle cx="230" cy="150" r="6" fill="var(--ink-faint)"/>
+          <g transform="translate(408,38)">
+            <rect x="0" y="0" width="44" height="44" rx="4" fill="var(--amber)"/>
+            <path d="M12 22h20M22 12v20" stroke="#181305" stroke-width="2.4" stroke-linecap="round"/>
+          </g>
+          <circle class="route-dot" r="5.5" fill="var(--amber-deep)"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <div class="stats-band">
+    <div class="container">
+      <div class="stat">
+        <div class="n">4,8<small>/ 5</small></div>
+        <div class="lbl">Ø Bewertung auf Google &amp; Co. (35 Rezensionen)</div>
+      </div>
+      <div class="stat">
+        <div class="n">2<small>Partner</small></div>
+        <div class="lbl">Inhabergeführte GbR aus Melle-Vesterhausen</div>
+      </div>
+      <div class="stat">
+        <div class="n">B2B<small>&amp; privat</small></div>
+        <div class="lbl">Privatumzüge und Firmenkunden aus einer Hand</div>
+      </div>
+      <div class="stat">
+        <div class="n">Fest<small>preis</small></div>
+        <div class="lbl">Verbindliches Angebot vor Umzugsbeginn</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ LEISTUNGEN ============ -->
+  <section id="leistungen">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Leistungen</span>
+        <h2>Alles für Ihren Umzug — geplant aus einer Hand</h2>
+        <p>Vom einzelnen Umzugskarton bis zum kompletten Firmenumzug: Sie sprechen mit einem Ansprechpartner, wir koordinieren den Rest.</p>
+      </div>
+    </div>
+    <div class="container" style="padding:0">
+      <div class="services-grid reveal">
+
+        <div class="service-card">
+          <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 9l9-5 9 5v9l-9 5-9-5V9z"/><path d="M3 9l9 5 9-5M12 14v9"/></svg></div>
+          <h3>Privatumzug</h3>
+          <p>Vom Einzelzimmer bis zur Familienvilla — wir planen, verpacken und transportieren Ihren gesamten Hausstand.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21V9l7-4v16M14 21V5l7 4v12"/><path d="M7 12h0M7 15h0M7 18h0M17 12h0M17 15h0M17 18h0" stroke-width="2.4" stroke-linecap="round"/></svg></div>
+          <h3>Firmenumzug</h3>
+          <p>Büro-, Praxis- und Betriebsumzüge mit minimaler Ausfallzeit — oft abends oder am Wochenende.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-5.2-9.5-9.7A5.5 5.5 0 0 1 12 5.5a5.5 5.5 0 0 1 9.5 5.8C19 15.8 12 21 12 21z"/></svg></div>
+          <h3>Seniorenumzug</h3>
+          <p>Einfühlsame Begleitung beim Wechsel in eine kleinere Wohnung oder ins Betreute Wohnen.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 4l3 3M20 4l-3 3M4 20l3-3M20 20l-3-3"/><circle cx="12" cy="12" r="5"/></svg></div>
+          <h3>Haushaltsauflösung</h3>
+          <p>Sortierung, Entsorgung und besenreine Übergabe — auf Wunsch komplett aus einer Hand.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14.7 6.3a4 4 0 0 1-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 0 1 5.4-5.4l-2.7 2.7-2-2 2.7-2.7z"/></svg></div>
+          <h3>Möbelmontage</h3>
+          <p>Fachgerechter Ab- und Aufbau von Möbeln, Küchen und empfindlichen Einrichtungsgegenständen.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 9.5L12 3l9 6.5V21H3V9.5z"/><path d="M9 21v-7h6v7"/></svg></div>
+          <h3>Einlagerung</h3>
+          <p>Sichere, trockene Lagerflächen für Möbel und Kartons — tage-, wochen- oder monatsweise.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.2"/></svg></div>
+          <h3>Verpackungsmaterial</h3>
+          <p>Kartons, Kleiderboxen, Polstermaterial und Kabeltrommeln — geliefert oder vor Ort verfügbar.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 12h18M3 12l5-5M3 12l5 5M21 12l-5-5M21 12l-5 5"/></svg></div>
+          <h3>Fernumzug</h3>
+          <p>Umzüge über die Region hinaus — deutschlandweit geplant und zuverlässig koordiniert.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABLAUF ============ -->
+  <section id="ablauf" style="background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Ablauf</span>
+        <h2>Vier Schritte bis zum neuen Zuhause</h2>
+        <p>Ein klarer Prozess, damit Sie jederzeit wissen, woran Sie sind — vom ersten Anruf bis zur letzten Kiste.</p>
+      </div>
+      <div class="process reveal">
+        <div class="process-step">
+          <div class="num">01</div>
+          <h3>Anfrage &amp; Beratung</h3>
+          <p>Sie schildern uns Ihre Situation — telefonisch, per E-Mail oder über das Formular unten.</p>
+        </div>
+        <div class="process-step">
+          <div class="num">02</div>
+          <h3>Besichtigung &amp; Festpreis</h3>
+          <p>Vor Ort oder per Video schätzen wir den Aufwand ein und nennen einen verbindlichen Festpreis.</p>
+        </div>
+        <div class="process-step">
+          <div class="num">03</div>
+          <h3>Umzug &amp; Transport</h3>
+          <p>Am Umzugstag verpackt, trägt und transportiert unser Team Ihren Hausstand sicher zum neuen Ziel.</p>
+        </div>
+        <div class="process-step">
+          <div class="num">04</div>
+          <h3>Übergabe &amp; Nachkontrolle</h3>
+          <p>Wir räumen ein, prüfen gemeinsam den Zustand und stehen auch danach für Rückfragen bereit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FIRMENKUNDEN / B2B ============ -->
+  <section id="firmenkunden" class="b2b">
+    <div class="container">
+      <div class="b2b-grid">
+        <div>
+          <span class="eyebrow reveal">Firmenkunden</span>
+          <h2 class="reveal" style="margin-top:.5em; font-size:clamp(1.9rem,3.2vw,2.5rem); color:var(--bar-text);">Büroumzüge, die den Betrieb nicht stoppen</h2>
+          <p class="reveal" style="margin-top:16px; color:#c7c5d6; max-width:48ch;">Ob Kanzlei, Praxis, Werkstatt oder Verwaltung: Wir planen Firmenumzüge außerhalb Ihrer Kernzeiten und sorgen dafür, dass am nächsten Morgen alle Arbeitsplätze wieder einsatzbereit sind.</p>
+          <div class="b2b-cta reveal">
+            <a class="btn btn-ghost-invert" href="#kontakt">
+              Firmenumzug anfragen
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+        <ul class="b2b-list reveal">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Fester Ansprechpartner für die gesamte Planung</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Umzugstermine abends oder am Wochenende möglich</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Kennzeichnung &amp; Dokumentation jedes Kartons</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Diskretion &amp; Vertraulichkeit bei Akten und Unterlagen</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Fachgerechter Transport von IT, Servern &amp; Aktenschränken</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ÜBER UNS / TEAM ============ -->
+  <section id="team">
+    <div class="container">
+      <div class="about-grid">
+        <div class="reveal">
+          <span class="eyebrow">Über uns</span>
+          <h2 style="margin-top:.5em; font-size:clamp(1.9rem,3.2vw,2.4rem);">Ein Familienbetrieb aus Melle-Vesterhausen</h2>
+        </div>
+        <div class="about-copy reveal">
+          <p>Gonnis Umzüge C&amp;K GbR ist ein inhabergeführter Umzugsbetrieb mit Sitz in Melle-Vesterhausen. Zwei Gesellschafter, ein eingespieltes Team — und der Anspruch, jeden Umzug so sorgfältig zu behandeln wie den eigenen.</p>
+          <p>Wir kennen die Ortsteile rund um Melle, das Osnabrücker Land und die Wege bis nach Bielefeld oder Osnabrück — und planen jeden Umzug so, dass er zu Ihrem Alltag passt, nicht umgekehrt.</p>
+        </div>
+      </div>
+
+      <div class="team-grid reveal">
+        <div class="team-card">
+          <div class="team-avatar">
+            <span class="mono">C.</span>
+          </div>
+          <div class="team-body">
+            <div class="name">„C.“ — Mitgründer</div>
+            <div class="role">Umzugsleitung &amp; Disposition</div>
+            <div class="bio">Plant Touren, spricht mit Kunden vor Ort und behält am Umzugstag den Überblick.</div>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">
+            <span class="mono">K.</span>
+          </div>
+          <div class="team-body">
+            <div class="name">„K.“ — Mitgründer</div>
+            <div class="role">Logistik &amp; Firmenkunden</div>
+            <div class="bio">Zuständig für Fuhrpark, Materialplanung und die Betreuung gewerblicher Kunden.</div>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">
+            <span class="mono">Ω</span>
+          </div>
+          <div class="team-body">
+            <div class="name">Das Umzugsteam</div>
+            <div class="role">Packer &amp; Fahrer</div>
+            <div class="bio">Ein eingespieltes Team, das für Sorgfalt beim Packen und pünktliches Anpacken steht.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BEWERTUNGEN ============ -->
+  <section id="bewertungen" style="background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+    <div class="container">
+      <div class="reviews-top reveal">
+        <div class="section-head" style="margin-bottom:0;">
+          <span class="eyebrow">Bewertungen</span>
+          <h2>Was über das Umzugsgebiet hinaus zu hören ist</h2>
+        </div>
+        <div class="rating-block">
+          <div class="rating-num">4,8</div>
+          <div>
+            <div class="stars">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.55L18 20.5 12 16.9 6 20.5l1.4-6.6L2.2 8.86l6.9-.6L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.55L18 20.5 12 16.9 6 20.5l1.4-6.6L2.2 8.86l6.9-.6L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.55L18 20.5 12 16.9 6 20.5l1.4-6.6L2.2 8.86l6.9-.6L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.55L18 20.5 12 16.9 6 20.5l1.4-6.6L2.2 8.86l6.9-.6L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.55L18 20.5 12 16.9 6 20.5l1.4-6.6L2.2 8.86l6.9-.6L12 2z"/></svg>
+            </div>
+            <div class="rating-sub">35 Bewertungen · Google &amp; weitere Portale</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-grid reveal">
+        <div class="review-card">
+          <div class="stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.55L18 20.5 12 16.9 6 20.5l1.4-6.6L2.2 8.86l6.9-.6L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.55L18 20.5 12 16.9 6 20.5l1.4-6.6L2.2 8.86l6.9-.6L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.55L18 20.5 12 16.9 6 20.5l1.4-6.6L2.2 8.86l6.9-.6L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.55L18 20.5 12 16.9 6 20.5l1.4-6.6L2.2 8.86l6.9-.6L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.55L18 20.5 12 16.9 6 20.5l1.4-6.6L2.2 8.86l6.9-.6L12 2z"/></svg>
+          </div>
+          <p>„Von der ersten Anfrage bis zur letzten Kiste hat alles gepasst. Termine wurden eingehalten, nichts ist beschädigt worden.“</p>
+          <div class="who">J. R. — Privatumzug innerhalb Melle</div>
+        </div>
+        <div class="review-card">
+          <div class="stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.55L18 20.5 12 16.9 6 20.5l1.4-6.6L2.2 8.86l6.9-.6L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.55L18 20.5 12 16.9 6 20.5l1.4-6.6L2.2 8.86l6.9-.6L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.55L18 20.5 12 16.9 6 20.5l1.4-6.6L2.2 8.86l6.9-.6L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.55L18 20.5 12 16.9 6 20.5l1.4-6.6L2.2 8.86l6.9-.6L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.55L18 20.5 12 16.9 6 20.5l1.4-6.6L2.2 8.86l6.9-.6L12 2z"/></svg>
+          </div>
+          <p>„Unseren Büroumzug haben wir freitagabends gemacht — montags früh war das Team einsatzbereit, ohne einen Tag Ausfall.“</p>
+          <div class="who">T. H. — Firmenumzug, Verwaltung</div>
+        </div>
+        <div class="review-card">
+          <div class="stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.55L18 20.5 12 16.9 6 20.5l1.4-6.6L2.2 8.86l6.9-.6L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.55L18 20.5 12 16.9 6 20.5l1.4-6.6L2.2 8.86l6.9-.6L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.55L18 20.5 12 16.9 6 20.5l1.4-6.6L2.2 8.86l6.9-.6L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.55L18 20.5 12 16.9 6 20.5l1.4-6.6L2.2 8.86l6.9-.6L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.55L18 20.5 12 16.9 6 20.5l1.4-6.6L2.2 8.86l6.9-.6L12 2z"/></svg>
+          </div>
+          <p>„Meine Mutter musste kurzfristig in eine kleinere Wohnung. Das Team war geduldig, hat mitgedacht und war sehr respektvoll.“</p>
+          <div class="who">S. K. — Seniorenumzug</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EINZUGSGEBIET ============ -->
+  <section id="einzugsgebiet">
+    <div class="container">
+      <div class="area-wrap">
+        <div class="reveal">
+          <span class="eyebrow">Einzugsgebiet</span>
+          <h2 style="margin-top:.5em; font-size:clamp(1.9rem,3.2vw,2.4rem);">Zuhause im Osnabrücker Land</h2>
+          <p style="margin-top:16px; color:var(--ink-soft); max-width:46ch;">Unser Schwerpunkt liegt in Melle und dem Osnabrücker Land — auf Anfrage übernehmen wir auch Umzüge in die weitere Region und darüber hinaus.</p>
+        </div>
+        <div class="chip-cloud reveal">
+          <span class="chip hq">Melle-Vesterhausen · Sitz</span>
+          <span class="chip">Osnabrück</span>
+          <span class="chip">Bissendorf</span>
+          <span class="chip">Wallenhorst</span>
+          <span class="chip">Bad Essen</span>
+          <span class="chip">Ostercappeln</span>
+          <span class="chip">Versmold</span>
+          <span class="chip">Borgholzhausen</span>
+          <span class="chip">Bielefeld</span>
+          <span class="chip">Herford</span>
+          <span class="chip">+ weitere auf Anfrage</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ KONTAKT ============ -->
+  <section id="kontakt" style="background:var(--surface); border-top:1px solid var(--line);">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Kontakt</span>
+        <h2>Lassen Sie uns über Ihren Umzug sprechen</h2>
+        <p>Rufen Sie an oder schicken Sie uns die Eckdaten — Sie erhalten zeitnah eine Rückmeldung mit den nächsten Schritten.</p>
+      </div>
+
+      <div class="contact-grid reveal">
+        <div class="contact-card">
+          <div class="contact-line">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
+            <div>
+              <div class="l">Telefon</div>
+              <div class="v"><a href="tel:+4954229620660">05422 96 20 660</a></div>
+            </div>
+          </div>
+          <div class="contact-line">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            <div>
+              <div class="l">E-Mail</div>
+              <div class="v"><a href="mailto:info@gonnis-umzuege.de">info@gonnis-umzuege.de</a></div>
+            </div>
+          </div>
+          <div class="contact-line">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <div class="l">Standort</div>
+              <div class="v">Melle-Vesterhausen · Osnabrücker Land</div>
+            </div>
+          </div>
+          <div class="contact-line">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+            <div>
+              <div class="l">Erreichbarkeit</div>
+              <div class="v">Mo–Fr 8–18 Uhr, Sa nach Vereinbarung</div>
+            </div>
+          </div>
+        </div>
+
+        <form class="inquiry" onsubmit="return false;">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" type="text" placeholder="Vor- und Nachname"></div>
+          <div class="field"><label for="f-kontakt">Telefon oder E-Mail</label><input id="f-kontakt" type="text" placeholder="Wie erreichen wir Sie?"></div>
+          <div class="field"><label for="f-von">Von (PLZ / Ort)</label><input id="f-von" type="text" placeholder="z. B. 49324 Melle"></div>
+          <div class="field"><label for="f-nach">Nach (PLZ / Ort)</label><input id="f-nach" type="text" placeholder="z. B. 49074 Osnabrück"></div>
+          <div class="field"><label for="f-termin">Wunschtermin</label><input id="f-termin" type="text" placeholder="z. B. Mitte Oktober"></div>
+          <div class="field"><label for="f-groesse">Umzugsgröße</label><input id="f-groesse" type="text" placeholder="z. B. 3-Zimmer-Wohnung"></div>
+          <div class="field full"><label for="f-nachricht">Nachricht</label><textarea id="f-nachricht" placeholder="Besonderheiten, Etage, Aufzug, Termine …"></textarea></div>
+          <div class="full form-foot">
+            <p class="form-note">Wir melden uns in der Regel innerhalb eines Werktages bei Ihnen zurück.</p>
+            <button class="btn btn-primary" type="submit">
+              Anfrage senden
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="l1">GONNIS</div>
+        <div class="l2">UMZÜGE&nbsp;·&nbsp;MELLE</div>
+        <p>Gonnis Umzüge C&amp;K GbR — Privat- und Firmenumzüge in Melle-Vesterhausen und im Osnabrücker Land.</p>
+      </div>
+      <div>
+        <h4>Leistungen</h4>
+        <div class="flinks">
+          <a href="#leistungen">Privatumzug</a>
+          <a href="#leistungen">Firmenumzug</a>
+          <a href="#leistungen">Haushaltsauflösung</a>
+          <a href="#leistungen">Einlagerung</a>
+        </div>
+      </div>
+      <div>
+        <h4>Unternehmen</h4>
+        <div class="flinks">
+          <a href="#team">Über uns</a>
+          <a href="#bewertungen">Bewertungen</a>
+          <a href="#firmenkunden">Firmenkunden</a>
+          <a href="#kontakt">Kontakt</a>
+        </div>
+      </div>
+      <div>
+        <h4>Rechtliches</h4>
+        <div class="flinks">
+          <span class="muted">Impressum</span>
+          <span class="muted">Datenschutz</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Gonnis Umzüge C&amp;K GbR</span>
+      <span>Gestaltungsentwurf — Angaben zu Team, Kundenstimmen, Adresse und Öffnungszeiten beispielhaft, vor Livegang zu bestätigen.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="maker-badge" href="https://hintage.de" target="_blank" rel="noopener">
+  <span class="dot"></span>
+  Design von <b>hintage.de</b>
+</a>
+
+<script>
+  (function(){
+    var burger = document.getElementById('burgerBtn');
+    var mnav = document.getElementById('mobileNav');
+    if(burger){
+      burger.addEventListener('click', function(){
+        var open = mnav.classList.toggle('open');
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      mnav.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          mnav.classList.remove('open');
+          burger.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    var els = document.querySelectorAll('.reveal');
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold:.12, rootMargin:'0px 0px -40px 0px' });
+      els.forEach(function(el){ io.observe(el); });
+    } else {
+      els.forEach(function(el){ el.classList.add('in'); });
+    }
+  })();
+</script>
